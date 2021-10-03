@@ -43,7 +43,7 @@ class SpatialTransformer(nn.Module):
         grid (Tensor): flow-field of shape :math:`(N, H_\text{out}, W_\text{out}, 2)` (4-D case)
                        or :math:`(N, D_\text{out}, H_\text{out}, W_\text{out}, 3)` (5-D case)
         """
-        return F.grid_sample(src, new_locs, mode=self.mode)
+        return F.grid_sample(src, new_locs, mode=self.mode, align_corners=True)
 
 
 class Uncoupled_Encoding_Block(nn.Module):
